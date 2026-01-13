@@ -90,7 +90,7 @@ const App = () => {
         
         <div className="flex flex-col items-center bg-white/[0.02] border-b border-white/5 py-5 px-4 gap-4">
           <p className="hidden md:block text-[9px] text-slate-500 font-bold uppercase tracking-[0.4em] opacity-70 text-center">
-            Limpieza profunda: Sin espacios, sin duplicados, sin basura
+            Limpieza profunda: Elimina espacios y lineas duplicadas, deja limpio tu texto y ordenado.
           </p>
           <SortOptions selected={sortType} onSelect={setSortType} />
         </div>
@@ -119,7 +119,7 @@ const App = () => {
             Limpiar todo
           </button>
 
-          <div className="order-2 flex flex-row items-center gap-2 w-full sm:w-auto">
+          <div className="order-2 fle:x flex-row items-center gap-2 w-full sm:w-auto">
             <button
               onClick={processText}
               className="flex-1 sm:flex-none px-8 md:px-12 py-3 bg-white text-slate-900 text-[10px] font-extrabold tracking-[0.2em] uppercase rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-xl active:scale-95"
