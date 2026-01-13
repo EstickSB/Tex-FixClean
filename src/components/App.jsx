@@ -89,8 +89,8 @@ const App = () => {
       <div className="w-full max-w-5xl glass rounded-[32px] md:rounded-[40px] shadow-2xl flex flex-col min-h-[500px] md:h-[520px] border border-white/10 relative transition-all duration-300">
         
         <div className="flex flex-col items-center bg-white/[0.02] border-b border-white/5 py-5 px-4 gap-4">
-          <p className="hidden md:block text-[9px] text-slate-500 font-bold uppercase tracking-[0.4em] opacity-70 text-center">
-            Limpieza profunda: Elimina espacios y lineas duplicadas, deja limpio tu texto y ordenado.
+          <p className="hidden md:block text-[9px] text-slate-100 font-bold uppercase tracking-[0.4em] opacity-70 text-center">
+            Deep text cleaning: removes spaces and duplicate lines for clean and organized content.
           </p>
           <SortOptions selected={sortType} onSelect={setSortType} />
         </div>
@@ -114,17 +114,17 @@ const App = () => {
         <div className="bg-white/[0.04] border-t border-white/5 p-4 md:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <button
             onClick={handleReset}
-            className="order-3 sm:order-1 text-[9px] font-bold tracking-[0.2em] uppercase text-slate-600 hover:text-red-400 transition-colors px-4 py-2"
+            className="order-3 sm:order-1 text-[9px] font-bold tracking-[0.2em] uppercase text-slate-400 hover:text-red-400 transition-colors px-4 py-2"
           >
-            Limpiar todo
+            Clean
           </button>
 
-          <div className="order-2 fle:x flex-row items-center gap-2 w-full sm:w-auto">
+          <div className="order-2 flex flex-row items-center justify-center gap-3 w-full sm:w-auto">
             <button
               onClick={processText}
               className="flex-1 sm:flex-none px-8 md:px-12 py-3 bg-white text-slate-900 text-[10px] font-extrabold tracking-[0.2em] uppercase rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-xl active:scale-95"
             >
-              Procesar
+              Process
             </button>
             <button
               onClick={handleCopy}
@@ -137,7 +137,7 @@ const App = () => {
                     : 'border-white/10 text-slate-300 hover:bg-white/10 hover:border-white/20 active:scale-95'
               }`}
             >
-              {isCopied ? '¡Copiado!' : 'Copiar'}
+              {isCopied ? '¡Copied!' : 'Copy'}
             </button>
           </div>
         </div>
