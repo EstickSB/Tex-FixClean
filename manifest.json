@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Limpieza y Organización de Texto Online",
+  "description": "Elimina espacios y líneas duplicadas para dejar tu texto limpio y ordenado.",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
