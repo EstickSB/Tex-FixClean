@@ -7,7 +7,7 @@ const SortOptions = ({ selected, onSelect }) => {
         <div key={option.value} className="relative group">
           <button
             onClick={() => onSelect(option.value)}
-            className={`px-3 md:px-5 py-2 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition-all duration-300 ${
+            className={`px-3 md:px-5 py-2 rounded-full text-[8px] md:text-[10px] font-bold uppercase tracking-widest transition-all duration-300 ${
               selected === option.value
                 ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/40'
                 : 'text-slate-500 hover:text-slate-300 hover:bg-white/5'

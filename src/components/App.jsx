@@ -89,8 +89,8 @@ const App = () => {
       <div className="w-full max-w-5xl glass rounded-[32px] md:rounded-[40px] shadow-2xl flex flex-col min-h-[500px] md:h-[520px] border border-white/10 relative transition-all duration-300">
         
         <div className="flex flex-col items-center bg-white/[0.02] border-b border-white/5 py-5 px-4 gap-4">
-          <p className="hidden md:block text-[9px] text-slate-100 font-bold uppercase tracking-[0.4em] opacity-70 text-center">
-            Deep text cleaning: removes spaces and duplicate lines for clean and organized content.
+          <p className="hidden md:block text-[9px] text-slate-400 font-bold uppercase tracking-[0.4em] opacity-70 text-center">
+            Limpieza de texto: elimina espacios y líneas duplicadas para un contenido limpio y organizado.
           </p>
           <SortOptions selected={sortType} onSelect={setSortType} />
         </div>

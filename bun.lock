@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "tex-fixclean",
+      "name": "Limpieza-de-Texto",
       "dependencies": {
         "@astrojs/react": "^4.4.2",
         "@astrojs/tailwind": "^6.0.2",

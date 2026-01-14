@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://github.com/EstickSB',
-  base: '/Tex-FixClean',
+  base: '/Limpieza-de-Texto-Online',
   integrations: [
     react(),
     tailwind()
