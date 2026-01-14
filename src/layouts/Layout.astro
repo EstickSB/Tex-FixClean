@@ -1,36 +1,93 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
 }
-const { title } = Astro.props;
-import '../styles/global.css';
+
+const {
+  title = "Eliminar líneas duplicadas online | Tex-FixClean",
+  description = "Elimina líneas duplicadas y texto repetido online de forma rápida y gratuita. Limpia tu texto en segundos con Tex-FixClean.",
+  canonical = "https://tex-fixclean.com",
+  image = "https://tex-fixclean.com/og-image.png"
+} = Astro.props;
+
+import "../styles/global.css";
 ---
+
 <!doctype html>
 <html lang="es" class="dark">
   <head>
+    <!-- Basic -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO -->
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#020617" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.png" type="image/png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global styles -->
     <style is:global>
       body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: "Plus Jakarta Sans", sans-serif;
         background: radial-gradient(circle at top right, #1e293b 0%, #020617 100%);
         overflow-x: hidden;
       }
+
       .glass {
         background: rgba(15, 23, 42, 0.6);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
       }
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      ::selection { background: rgba(59, 130, 246, 0.3); color: #fff; }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      ::selection {
+        background: rgba(59, 130, 246, 0.3);
+        color: #fff;
+      }
     </style>
   </head>
-  <body class="text-slate-200 min-h-screen">
+
+  <body class="text-slate-200 min-h-screen antialiased">
     <slot />
   </body>
 </html>
