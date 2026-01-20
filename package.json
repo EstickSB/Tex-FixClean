@@ -1,11 +1,11 @@
 {
-  "name": "Limpieza-de-texto",
+  "name": "limpieza-de-texto",
   "type": "module",
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && node fix-csp.js",
     "preview": "astro preview",
     "astro": "astro"
   },

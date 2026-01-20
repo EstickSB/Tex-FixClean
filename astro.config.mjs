@@ -4,7 +4,9 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://github.com/EstickSB',
-  base: '/Limpieza-y-Organizacion-de-Texto-Online',
+  build: {
+    format: 'file'
+  },
   integrations: [
     react(),
     tailwind()
