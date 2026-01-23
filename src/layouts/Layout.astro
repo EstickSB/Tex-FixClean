@@ -9,8 +9,8 @@ interface Props {
 const {
   title = "Eliminar líneas duplicadas online | Tex-FixClean",
   description = "Elimina líneas duplicadas y texto repetido online de forma rápida y gratuita. Limpia tu texto en segundos con Tex-FixClean.",
-  canonical = "https://tex-fixclean.com",
-  image = "https://tex-fixclean.com/og-image.png"
+  canonical = "https://EstickSB.github.io/Limpieza-y-Organizacion-de-Texto-Online",
+  image = "https://EstickSB.github.io/Limpieza-y-Organizacion-de-Texto-Online/favicon.png"
 } = Astro.props;
 
 import "../styles/global.css";
@@ -47,7 +47,7 @@ import "../styles/global.css";
     <meta name="twitter:image" content={image} />
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="favicon.png" type="image/png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,10 +59,28 @@ import "../styles/global.css";
 
     <!-- Global styles -->
     <style is:global>
+      html {
+        min-width: 320px; /* Base for true mobile */
+      }
+      
+      /* For Chrome Extension and larger screens, ensure it's wide enough */
+      @media (min-width: 480px) {
+        html {
+          min-width: 600px; 
+        }
+      }
+
+      @media (min-width: 1024px) {
+        html {
+          min-width: 850px;
+        }
+      }
+
       body {
         font-family: "Plus Jakarta Sans", sans-serif;
         background: radial-gradient(circle at top right, #1e293b 0%, #020617 100%);
         overflow-x: hidden;
+        min-width: 100%;
       }
 
       .glass {

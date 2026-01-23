@@ -9,21 +9,36 @@ if (fs.existsSync(htmlFile)) {
     let content = fs.readFileSync(htmlFile, 'utf8');
     const scripts = [];
 
-    // Regex to find script tags and extract their content
+    // 1. Move inline scripts to external file (Required by Chrome Extensions CSP)
     content = content.replace(/<script(?![^>]*src)[^>]*>([\s\S]*?)<\/script>/gi, (match, scriptContent) => {
         scripts.push(scriptContent);
-        return ''; // Remove the inline script tag
+        return '';
     });
 
     if (scripts.length > 0) {
         fs.writeFileSync(scriptsFile, scripts.join('\n\n'));
-        // Add the new script tag before the closing body tag or at the end of head
-        content = content.replace('</body>', '<script src="/astro-scripts.js"></script></body>');
-        fs.writeFileSync(htmlFile, content);
-        console.log('Fixed CSP: Moved inline scripts to astro-scripts.js');
-    } else {
-        console.log('No inline scripts found.');
+        content = content.replace('</body>', '<script src="astro-scripts.js"></script></body>');
     }
+
+    // 2. Make paths relative so they work on GitHub Pages subfolders and Chrome Extensions
+    // Replace href="/..." with href="..." (caution with external links, but Astro usually uses / for internal)
+    // Replace src="/..." with src="..."
+
+    // We target specifically /_astro/ and /favicon.png or other common root assets
+    content = content.replace(/(href|src)="\/([^"]*)"/g, (match, attr, pathValue) => {
+        // If it starts with http or is an absolute URL, don't change it
+        if (pathValue.startsWith('http') || pathValue.startsWith('//')) {
+            return match;
+        }
+        // Change absolute root path to relative
+        return `${attr}="./${pathValue}"`;
+    });
+
+    // Specifically handle the case where Astro might have inserted the base path if we used it
+    // But since we want to be universal, we'll just ensure everything is relative.
+
+    fs.writeFileSync(htmlFile, content);
+    console.log('Fixed CSP and made paths relative.');
 } else {
     console.error('index.html not found in dist folder');
 }
