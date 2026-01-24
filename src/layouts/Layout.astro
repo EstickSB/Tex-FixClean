@@ -59,34 +59,24 @@ import "../styles/global.css";
 
     <!-- Global styles -->
     <style is:global>
-      html {
-        min-width: 320px; /* Base for true mobile */
-      }
-      
-      /* For Chrome Extension and larger screens, ensure it's wide enough */
-      @media (min-width: 480px) {
-        html {
-          min-width: 600px; 
-        }
-      }
-
-      @media (min-width: 1024px) {
-        html {
-          min-width: 850px;
-        }
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
       }
 
       body {
         font-family: "Plus Jakarta Sans", sans-serif;
         background: radial-gradient(circle at top right, #1e293b 0%, #020617 100%);
-        overflow-x: hidden;
-        min-width: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
       }
 
       .glass {
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
       }
 
       .no-scrollbar::-webkit-scrollbar {
@@ -99,7 +89,7 @@ import "../styles/global.css";
       }
 
       ::selection {
-        background: rgba(59, 130, 246, 0.3);
+        background: rgba(59, 130, 246, 0.4);
         color: #fff;
       }
     </style>

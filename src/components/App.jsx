@@ -3,7 +3,6 @@ import Header from './Header';
 import SortOptions from './SortOptions';
 import TextInput from './TextInput';
 import TextOutput from './TextOutput';
-import Footer from './Footer';
 import { SortType } from '../types/enums';
 
 const App = () => {
@@ -33,7 +32,7 @@ const App = () => {
     }
 
     let rawLines = inputText.split(/\r?\n/);
-    
+
     const cleanedLines = rawLines
       .map(line => line.trim())
       .filter(line => line.length > 0);
@@ -58,11 +57,10 @@ const App = () => {
     setOutputText(resultLines.join('\n'));
   }, [inputText, sortType]);
 
+  // Real-time processing
   useEffect(() => {
-    if (inputText.trim()) {
-      processText();
-    }
-  }, [sortType]);
+    processText();
+  }, [inputText, sortType, processText]);
 
   const handleReset = () => {
     setInputText('');
@@ -83,67 +81,39 @@ const App = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-screen p-4 md:p-6 lg:p-10 overflow-y-auto no-scrollbar">
+    <div className="w-full flex flex-col items-center justify-center min-h-[100dvh] p-2 md:p-6 overflow-x-hidden">
       <Header />
-      
-      <div className="w-full max-w-5xl glass rounded-[32px] md:rounded-[40px] shadow-2xl flex flex-col min-h-[500px] md:h-[520px] border border-white/10 relative transition-all duration-300">
-        
-        <div className="flex flex-col items-center bg-white/[0.02] border-b border-white/5 py-5 px-4 gap-4">
-          <p className="hidden md:block text-[9px] text-slate-400 font-bold uppercase tracking-[0.4em] opacity-70 text-center">
-            Limpieza de texto: elimina espacios y líneas duplicadas para un contenido limpio y organizado.
+
+      <main className="w-full max-w-5xl glass rounded-[20px] md:rounded-[32px] shadow-2xl flex flex-col min-h-[450px] md:h-[580px] border border-white/10 relative transition-all duration-300 overflow-hidden">
+
+        <div className="flex flex-col items-center bg-white/[0.02] border-b border-white/5 py-3 px-4 gap-2">
+          <p className="hidden md:block text-[8px] text-slate-400 font-bold uppercase tracking-[0.4em] opacity-60 text-center">
+            Limpieza de texto: elimina espacios y líneas duplicadas.
           </p>
-          <SortOptions selected={sortType} onSelect={setSortType} />
+          <div className="w-full flex justify-center py-0.5">
+            <SortOptions selected={sortType} onSelect={setSortType} />
+          </div>
         </div>
 
         <div className="flex-1 flex flex-col md:flex-row min-h-0 overflow-hidden">
-          <div className="flex-1 min-h-[200px] md:min-h-0">
-            <TextInput 
-              value={inputText} 
-              onChange={handleInputChange} 
+          <div className="flex-1 min-h-[220px] md:min-h-0">
+            <TextInput
+              value={inputText}
+              onChange={handleInputChange}
               lineCount={inputLineCount}
             />
           </div>
-          <div className="flex-1 min-h-[200px] md:min-h-0">
-            <TextOutput 
-              value={outputText} 
-              lineCount={outputLineCount} 
+          <div className="flex-1 min-h-[220px] md:min-h-0">
+            <TextOutput
+              value={outputText}
+              lineCount={outputLineCount}
+              onCopy={handleCopy}
+              onReset={handleReset}
+              isCopied={isCopied}
             />
           </div>
         </div>
-
-        <div className="bg-white/[0.04] border-t border-white/5 p-4 md:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <button
-            onClick={handleReset}
-            className="order-3 sm:order-1 text-[9px] font-bold tracking-[0.2em] uppercase text-slate-400 hover:text-red-400 transition-colors px-4 py-2"
-          >
-            Clean
-          </button>
-
-          <div className="order-2 flex flex-row items-center justify-center gap-3 w-full sm:w-auto">
-            <button
-              onClick={processText}
-              className="flex-1 sm:flex-none px-8 md:px-12 py-3 bg-white text-slate-900 text-[10px] font-extrabold tracking-[0.2em] uppercase rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-xl active:scale-95"
-            >
-              Process
-            </button>
-            <button
-              onClick={handleCopy}
-              disabled={!outputText}
-              className={`flex-1 sm:flex-none px-6 md:px-10 py-3 rounded-full text-[10px] font-extrabold tracking-[0.2em] uppercase transition-all duration-300 border ${
-                !outputText 
-                  ? 'border-white/5 text-slate-800 cursor-not-allowed' 
-                  : isCopied 
-                    ? 'border-emerald-500/50 text-emerald-400 bg-emerald-500/10' 
-                    : 'border-white/10 text-slate-300 hover:bg-white/10 hover:border-white/20 active:scale-95'
-              }`}
-            >
-              {isCopied ? '¡Copied!' : 'Copy'}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <Footer />
+      </main>
     </div>
   );
 };

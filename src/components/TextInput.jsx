@@ -1,15 +1,16 @@
 const TextInput = ({ value, onChange, lineCount }) => {
   return (
     <div className="flex flex-col h-full border-r border-white/5">
-      
-      {/* Header más compacto en móvil */}
-      <div className="flex justify-between items-center px-3 md:px-6 py-1.5 md:py-2 border-b border-white/5 bg-black/20">
-        <span className="text-[7px] md:text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold">
-          Input
-        </span>
-        <span className="text-[9px] md:text-[10px] text-slate-500 font-mono tracking-tighter">
-          {lineCount} lines
-        </span>
+
+      <div className="h-[45px] md:h-[52px] flex justify-between items-center px-4 md:px-6 border-b border-white/5 bg-black/20">
+        <div className="flex items-center gap-3">
+          <span className="text-[7px] md:text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold">
+            Input
+          </span>
+          <span className="text-[9px] md:text-[10px] text-slate-500/50 font-mono tracking-tighter">
+            {lineCount} lines
+          </span>
+        </div>
       </div>
 
       <textarea
@@ -28,11 +29,11 @@ const TextInput = ({ value, onChange, lineCount }) => {
           placeholder:text-slate-500
           no-scrollbar
 
-          p-3
+          p-4
           text-[13px]
           leading-snug
 
-          md:p-6
+          md:p-8
           md:text-sm
           md:leading-relaxed
         "
