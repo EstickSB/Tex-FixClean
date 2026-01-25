@@ -2,7 +2,7 @@ const TextOutput = ({ value, lineCount, onCopy, onReset, isCopied }) => {
   return (
     <div className="flex flex-col h-full bg-white/[0.005]">
 
-      <div className="h-[45px] md:h-[52px] flex justify-between items-center px-4 md:px-6 border-b border-white/5 bg-black/20">
+      <div className="h-[45px] sm:h-[52px] flex justify-between items-center px-4 sm:px-6 border-b border-white/5 bg-black/20">
         <div className="flex items-center gap-3">
           <span className="text-[7px] md:text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold">
             Output
@@ -71,9 +71,9 @@ const TextOutput = ({ value, lineCount, onCopy, onReset, isCopied }) => {
           text-[13px]
           leading-snug
 
-          md:p-8
-          md:text-sm
-          md:leading-relaxed
+          sm:p-8
+          sm:text-sm
+          sm:leading-relaxed
         "
         placeholder="Resultado limpio / Clean result..."
       />

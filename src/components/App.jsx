@@ -81,13 +81,13 @@ const App = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-[100dvh] p-2 md:p-6 overflow-x-hidden">
+    <div className="w-full flex flex-col items-center justify-center min-h-[100dvh] p-1.5 sm:p-4 md:p-6 overflow-x-hidden">
       <Header />
 
-      <main className="w-full max-w-5xl glass rounded-[20px] md:rounded-[32px] shadow-2xl flex flex-col min-h-[450px] md:h-[580px] border border-white/10 relative transition-all duration-300 overflow-hidden">
+      <main className="w-full max-w-5xl glass rounded-[20px] sm:rounded-[32px] shadow-2xl flex flex-col min-h-[450px] sm:h-[530px] border border-white/10 relative transition-all duration-300 overflow-hidden">
 
         <div className="flex flex-col items-center bg-white/[0.02] border-b border-white/5 py-3 px-4 gap-2">
-          <p className="hidden md:block text-[8px] text-slate-400 font-bold uppercase tracking-[0.4em] opacity-60 text-center">
+          <p className="hidden sm:block text-[8px] text-slate-400 font-bold uppercase tracking-[0.4em] opacity-60 text-center">
             Limpieza de texto: elimina espacios y líneas duplicadas.
           </p>
           <div className="w-full flex justify-center py-0.5">
@@ -95,15 +95,15 @@ const App = () => {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col md:flex-row min-h-0 overflow-hidden">
-          <div className="flex-1 min-h-[220px] md:min-h-0">
+        <div className="flex-1 flex flex-col sm:flex-row min-h-0 overflow-hidden">
+          <div className="flex-1 min-h-[220px] sm:min-h-0">
             <TextInput
               value={inputText}
               onChange={handleInputChange}
               lineCount={inputLineCount}
             />
           </div>
-          <div className="flex-1 min-h-[220px] md:min-h-0">
+          <div className="flex-1 min-h-[220px] sm:min-h-0">
             <TextOutput
               value={outputText}
               lineCount={outputLineCount}
