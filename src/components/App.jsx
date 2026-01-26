@@ -81,7 +81,7 @@ const App = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-[100dvh] p-1.5 sm:p-4 md:p-6 overflow-x-hidden">
+    <div className="w-full flex flex-col items-center justify-center min-h-screen p-1 sm:p-4 md:p-6 overflow-x-hidden">
       <Header />
 
       <main className="w-full max-w-5xl glass rounded-[20px] sm:rounded-[32px] shadow-2xl flex flex-col min-h-[450px] sm:h-[530px] border border-white/10 relative transition-all duration-300 overflow-hidden">
